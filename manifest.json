@@ -1,11 +1,9 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
-	"version": "1.0.0",
+	"id": "number-names",
+	"name": "Number Names",
+	"version": "0.0.1",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"description": "Renames files automatically to the highest number + 1 in a configured folder. You have to name a file to 'num' or 'number' to trigger the effect",
+	"author": "André Vis",
 	"isDesktopOnly": false
 }
