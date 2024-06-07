@@ -1,4 +1,4 @@
-import { App, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import { App, Editor, MarkdownView, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 
 // Remember to rename these classes and interfaces!
 
@@ -19,7 +19,19 @@ export default class NumberNamesPlugin extends Plugin {
 		await this.loadSettings();
 
 		this.addSettingTab(new SampleSettingTab(this.app, this));
-	
+
+		// This adds an editor command that can perform some operation on the current editor instance
+		this.addCommand({
+			id: 'sort',
+			name: 'Sort',
+			editorCallback: (editor: Editor, _: MarkdownView) => {
+				const newText = editor.getSelection()
+					.split('\n')
+					.sort()
+					.join('\n')
+				editor.replaceSelection(newText)
+			}
+		});
 
 		this.app.workspace.onLayoutReady(() => {
 			this.app.vault.on('rename', file => {
